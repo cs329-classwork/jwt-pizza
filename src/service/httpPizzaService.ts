@@ -49,6 +49,7 @@ class HttpPizzaService implements PizzaService {
   }
 
   async register(name: string, email: string, password: string): Promise<User> {
+    console.log("REGISTRATION WORKED.")
     const { user, token } = await this.callEndpoint('/api/auth', 'POST', { name, email, password });
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', token);
